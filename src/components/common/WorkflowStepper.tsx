@@ -18,8 +18,8 @@ export const WorkflowStepper: React.FC = () => {
       step: 1,
       id: 'challenges',
       aliases: ['challenges', 'create-challenge', 'challenge-detail'],
-      title: '1. Problem',
-      tagline: 'What needs fixing?',
+      title: '1. Challenge',
+      tagline: 'Problem formulation & KPIs',
       icon: <Target className="w-4 h-4" />,
       color: 'from-blue-500 to-indigo-600',
       bgColor: 'bg-blue-50 text-blue-700 border-blue-200'
@@ -28,8 +28,8 @@ export const WorkflowStepper: React.FC = () => {
       step: 2,
       id: 'startup-discovery',
       aliases: ['startup-discovery', 'discovery', 'startup-profile', 'eligibility-screening', 'screening', 'expert-evaluation', 'evaluation'],
-      title: '2. Pick Startup',
-      tagline: 'Find best solution',
+      title: '2. Screening',
+      tagline: 'DPIIT validation & scoring',
       icon: <Search className="w-4 h-4" />,
       color: 'from-amber-500 to-orange-600',
       bgColor: 'bg-amber-50 text-amber-700 border-amber-200'
@@ -38,8 +38,8 @@ export const WorkflowStepper: React.FC = () => {
       step: 3,
       id: 'pilot-command',
       aliases: ['pilot-command', 'contract-milestones'],
-      title: '3. Live Test',
-      tagline: '90-day village test',
+      title: '3. Sandbox Pilot',
+      tagline: '50-site field telemetry',
       icon: <FlaskConical className="w-4 h-4" />,
       color: 'from-purple-500 to-pink-600',
       bgColor: 'bg-purple-50 text-purple-700 border-purple-200'
@@ -48,8 +48,8 @@ export const WorkflowStepper: React.FC = () => {
       step: 4,
       id: 'baseline-outcome',
       aliases: ['baseline-outcome', 'validation', 'evidence-room'],
-      title: '4. See Proof',
-      tagline: 'Did it work? (Results)',
+      title: '4. Evidence Audit',
+      tagline: 'NABL & lab verification',
       icon: <Scale className="w-4 h-4" />,
       color: 'from-emerald-500 to-teal-600',
       bgColor: 'bg-emerald-50 text-emerald-700 border-emerald-200'
@@ -58,8 +58,8 @@ export const WorkflowStepper: React.FC = () => {
       step: 5,
       id: 'scale-decision',
       aliases: ['scale-decision', 'scale-simulator', 'procurement-readiness', 'procurement-pathway'],
-      title: '5. Buy & Scale',
-      tagline: 'Gov approval & rollout',
+      title: '5. Scale Sanction',
+      tagline: 'GFR 194-A Direct Buy',
       icon: <TrendingUp className="w-4 h-4" />,
       color: 'from-sky-500 to-blue-700',
       bgColor: 'bg-sky-50 text-sky-700 border-sky-200'
@@ -75,15 +75,15 @@ export const WorkflowStepper: React.FC = () => {
 
   return (
     <div className="gov-card p-3 mb-6">
-      <div className="flex items-center justify-between pb-2 mb-3 border-b border-gray-100 px-1">
+      <div className="flex flex-col sm:flex-row sm:items-center justify-between pb-2 mb-3 border-b border-gray-100 px-1 gap-2">
         <div className="flex items-center gap-2">
           <span className="live-dot"></span>
           <span className="text-xs font-bold text-gray-800 uppercase tracking-wide">
-            How It Works &mdash; 5 Steps
+            Statutory Stage-Gate Procurement Lifecycle (GFR Rule 194)
           </span>
         </div>
-        <span className="text-xs text-gray-400 font-medium bg-gray-50 border border-gray-200 px-2 py-0.5 rounded-full">
-          Step {currentIdx + 1} of 5
+        <span className="text-xs text-gray-500 font-semibold bg-gray-50 border border-gray-200 px-2.5 py-0.5 rounded-full shrink-0">
+          Stage {currentIdx + 1} of 5
         </span>
       </div>
 

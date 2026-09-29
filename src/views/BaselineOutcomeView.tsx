@@ -23,35 +23,35 @@ export const BaselineOutcomeView: React.FC = () => {
       metric: 'Detection Time (Speed)',
       oldWay: '72 Hours (3 Days by hand)',
       newWay: '18 Hours (Automated sensor)',
-      change: '⚡ 4x Faster',
+      change: '4x Faster',
       improved: true
     },
     {
       metric: 'Cost Per Water Sample',
       oldWay: '₹450 / test',
       newWay: '₹270 / test',
-      change: '💰 40% Cheaper',
+      change: '40% Cheaper',
       improved: true
     },
     {
       metric: 'Contamination Alert Time',
       oldWay: '3 to 5 Days (Paper report)',
       newWay: '28 Seconds (SMS & Auto-Valve)',
-      change: '🚀 Instant',
+      change: 'Real-time (<30s)',
       improved: true
     },
     {
       metric: 'Lab Accuracy & Correlation',
       oldWay: '80% (decay in transit)',
       newWay: '98.4% (Direct water stream)',
-      change: '🎯 +18.4% Accuracy',
+      change: '+18.4% Accuracy',
       improved: true
     },
     {
       metric: 'Villages Monitored Live',
       oldWay: '4 villages / month',
       newWay: '50 villages continuously (24/7)',
-      change: '📈 12x Coverage',
+      change: '12x Coverage',
       improved: true
     }
   ];
@@ -66,12 +66,13 @@ export const BaselineOutcomeView: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-900 text-xs font-bold px-2.5 py-1 rounded-full mb-1">
-              <span>📊 Step 4 of 5</span>
+              <Scale className="w-3.5 h-3.5" />
+              <span>Stage 4 of 5</span>
               <span>•</span>
-              <span>Before vs After Proof</span>
+              <span>Empirical Outcome Verification</span>
             </div>
             <h1 className="text-xl sm:text-2xl font-black text-gray-900">
-              The Proof: Before vs After 90-Day Village Test
+              The Proof: Baseline vs Outcome (90-Day Sandbox Pilot)
             </h1>
             <p className="text-xs text-gray-500 mt-0.5">
               Side-by-side proof showing AquaSense passed all 5 government performance goals.
@@ -82,7 +83,7 @@ export const BaselineOutcomeView: React.FC = () => {
             onClick={() => setActiveTab('scale-decision')}
             className="bg-[#123B63] hover:bg-[#1D5E8C] text-white text-xs font-black px-4 py-2.5 rounded-xl flex items-center gap-1.5 shadow-xs transition-all shrink-0"
           >
-            <span>Scale & Buy (Step 5)</span>
+            <span>Proceed to Scale Sanction</span>
             <ArrowRight className="w-4 h-4" />
           </button>
         </div>
@@ -91,8 +92,8 @@ export const BaselineOutcomeView: React.FC = () => {
       {/* Lab Verification Certificate Card */}
       <div className="bg-gradient-to-r from-emerald-600 to-teal-700 text-white p-5 rounded-2xl shadow-md flex flex-col md:flex-row items-start md:items-center justify-between gap-4">
         <div className="flex items-center gap-4">
-          <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center text-2xl shrink-0 border border-white/30">
-            🏅
+          <div className="w-12 h-12 bg-white/20 rounded-2xl flex items-center justify-center shrink-0 border border-white/30">
+            <Award className="w-6 h-6 text-white" />
           </div>
           <div>
             <div className="flex items-center gap-2">
@@ -112,9 +113,10 @@ export const BaselineOutcomeView: React.FC = () => {
 
         <button
           onClick={() => setActiveTab('validation')}
-          className="bg-white hover:bg-emerald-50 text-emerald-900 text-xs font-black px-3.5 py-2 rounded-xl shadow-xs shrink-0 transition-colors"
+          className="bg-white hover:bg-emerald-50 text-emerald-900 text-xs font-black px-3.5 py-2 rounded-xl shadow-xs shrink-0 transition-colors flex items-center gap-1"
         >
-          View Official Certificate ➔
+          <span>View Official Certificate</span>
+          <ArrowRight className="w-3.5 h-3.5" />
         </button>
       </div>
 
@@ -171,7 +173,7 @@ export const BaselineOutcomeView: React.FC = () => {
                 <div className="text-sm font-black text-emerald-900 mt-0.5">18 Hours</div>
               </div>
               <span className="bg-emerald-100 text-emerald-800 text-xs font-black px-2.5 py-1 rounded-full">
-                ⚡ 4x Faster
+                4x Faster
               </span>
             </div>
 
@@ -181,7 +183,7 @@ export const BaselineOutcomeView: React.FC = () => {
                 <div className="text-sm font-black text-emerald-900 mt-0.5">₹270 / test</div>
               </div>
               <span className="bg-emerald-100 text-emerald-800 text-xs font-black px-2.5 py-1 rounded-full">
-                💰 40% Cheaper
+                40% Cheaper
               </span>
             </div>
 
@@ -191,7 +193,7 @@ export const BaselineOutcomeView: React.FC = () => {
                 <div className="text-sm font-black text-emerald-900 mt-0.5">28 Seconds (Auto-Valve)</div>
               </div>
               <span className="bg-emerald-100 text-emerald-800 text-xs font-black px-2.5 py-1 rounded-full">
-                🚀 Instant
+                Real-time
               </span>
             </div>
 
@@ -201,7 +203,7 @@ export const BaselineOutcomeView: React.FC = () => {
                 <div className="text-sm font-black text-emerald-900 mt-0.5">98.4% Match</div>
               </div>
               <span className="bg-emerald-100 text-emerald-800 text-xs font-black px-2.5 py-1 rounded-full">
-                🎯 Certified
+                ISO Certified
               </span>
             </div>
           </div>

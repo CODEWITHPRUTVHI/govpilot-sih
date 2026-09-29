@@ -92,7 +92,7 @@ export const AnalyticsView: React.FC = () => {
           Innovation Adoption by Maharashtra Government Departments
         </h3>
 
-        <div className="overflow-hidden border border-[#D9E0E7] rounded">
+        <div className="overflow-x-auto border border-[#D9E0E7] rounded">
           <table className="gov-table">
             <thead>
               <tr>

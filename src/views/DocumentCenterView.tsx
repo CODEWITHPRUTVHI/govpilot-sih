@@ -88,7 +88,7 @@ export const DocumentCenterView: React.FC = () => {
       </div>
 
       {/* Documents Table */}
-      <div className="gov-card overflow-hidden">
+      <div className="gov-card overflow-x-auto">
         <table className="gov-table">
           <thead>
             <tr>

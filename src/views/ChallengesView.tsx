@@ -9,11 +9,17 @@ import {
   Building2, 
   MapPin, 
   IndianRupee, 
-  Clock,
-  Sparkles,
-  ArrowRight,
-  CheckCircle2,
-  Users
+  Clock, 
+  Sparkles, 
+  ArrowRight, 
+  CheckCircle2, 
+  Users,
+  Droplets,
+  Sprout,
+  Activity,
+  Bus,
+  GraduationCap,
+  Lightbulb
 } from 'lucide-react';
 import { WorkflowStepper } from '../components/common/WorkflowStepper';
 import { Badge } from '../components/common/Badge';
@@ -31,15 +37,15 @@ export const ChallengesView: React.FC = () => {
     return matchesSearch && matchesTheme;
   });
 
-  const getThemeEmoji = (theme: string) => {
-    if (!theme) return '💡';
+  const getThemeIcon = (theme: string) => {
+    if (!theme) return <Lightbulb className="w-5 h-5 text-amber-600" />;
     const t = theme.toUpperCase();
-    if (t.includes('WATER')) return '💧';
-    if (t.includes('AGRI')) return '🌾';
-    if (t.includes('HEALTH')) return '🏥';
-    if (t.includes('URBAN') || t.includes('MOBILITY')) return '🚌';
-    if (t.includes('EDU')) return '🎓';
-    return '💡';
+    if (t.includes('WATER')) return <Droplets className="w-5 h-5 text-blue-600" />;
+    if (t.includes('AGRI')) return <Sprout className="w-5 h-5 text-emerald-600" />;
+    if (t.includes('HEALTH')) return <Activity className="w-5 h-5 text-rose-600" />;
+    if (t.includes('URBAN') || t.includes('MOBILITY')) return <Bus className="w-5 h-5 text-sky-600" />;
+    if (t.includes('EDU')) return <GraduationCap className="w-5 h-5 text-purple-600" />;
+    return <Lightbulb className="w-5 h-5 text-amber-600" />;
   };
 
   return (
@@ -51,15 +57,16 @@ export const ChallengesView: React.FC = () => {
       <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4 bg-white p-5 rounded-2xl border border-gray-200 shadow-xs">
         <div>
           <div className="inline-flex items-center gap-1.5 bg-blue-50 text-blue-800 text-xs font-bold px-2.5 py-1 rounded-full mb-1">
-            <span>🎯 Step 1 of 5</span>
+            <Target className="w-3.5 h-3.5" />
+            <span>Stage 1 of 5</span>
             <span>•</span>
-            <span>Problem Definition</span>
+            <span>Problem Challenge Formulation</span>
           </div>
           <h1 className="text-xl sm:text-2xl font-black text-gray-900">
-            Problems Waiting for Startup Solutions
+            State Innovation Problem Statements & RFPs
           </h1>
           <p className="text-xs text-gray-500 mt-0.5">
-            Government departments post clear challenges with targets (e.g. speed, cost, accuracy).
+            Government departments post clear challenges with verifiable target metrics (e.g. speed, cost, accuracy).
           </p>
         </div>
 
@@ -68,7 +75,7 @@ export const ChallengesView: React.FC = () => {
           className="bg-[#123B63] hover:bg-[#1D5E8C] text-white text-xs font-bold px-4 py-2.5 rounded-xl flex items-center justify-center gap-2 shadow-xs transition-all shrink-0"
         >
           <Plus className="w-4 h-4" />
-          <span>Post a New Problem</span>
+          <span>Publish New Challenge</span>
         </button>
       </div>
 
@@ -84,27 +91,29 @@ export const ChallengesView: React.FC = () => {
                 : 'bg-white text-gray-700 border border-gray-200 hover:bg-gray-100'
             }`}
           >
-            All Problems ({challenges.length})
+            All Challenges ({challenges.length})
           </button>
           <button
             onClick={() => setThemeFilter('WATER_SANITATION')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1 ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 ${
               themeFilter === 'WATER_SANITATION'
                 ? 'bg-blue-600 text-white'
                 : 'bg-white text-gray-700 border border-gray-200 hover:bg-blue-50'
             }`}
           >
-            <span>💧 Water & Sanitation</span>
+            <Droplets className="w-3.5 h-3.5" />
+            <span>Water & Sanitation</span>
           </button>
           <button
             onClick={() => setThemeFilter('AGRICULTURE')}
-            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1 ${
+            className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-colors flex items-center gap-1.5 ${
               themeFilter === 'AGRICULTURE'
                 ? 'bg-emerald-600 text-white'
                 : 'bg-white text-gray-700 border border-gray-200 hover:bg-emerald-50'
             }`}
           >
-            <span>🌾 Agriculture</span>
+            <Sprout className="w-3.5 h-3.5" />
+            <span>Agriculture</span>
           </button>
         </div>
 
@@ -138,7 +147,9 @@ export const ChallengesView: React.FC = () => {
                 {/* Card Top Pill */}
                 <div className="flex items-center justify-between gap-2 mb-3">
                   <div className="flex items-center gap-2">
-                    <span className="text-2xl">{getThemeEmoji(challenge.theme)}</span>
+                    <div className="w-10 h-10 rounded-xl bg-gray-100 flex items-center justify-center shrink-0">
+                      {getThemeIcon(challenge.theme)}
+                    </div>
                     <div>
                       <span className="text-[10px] font-bold text-gray-400 uppercase tracking-wider">
                         {challenge.challengeCode}

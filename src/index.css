@@ -144,8 +144,14 @@
 }
 
 /* === TABLE SYSTEM === */
+.gov-card:has(.gov-table),
+.gov-table-container {
+  overflow-x: auto;
+  -webkit-overflow-scrolling: touch;
+}
 .gov-table {
   width: 100%;
+  min-width: 620px;
   border-collapse: collapse;
   font-size: 13px;
 }

@@ -29,8 +29,8 @@ export const Sidebar: React.FC = () => {
     { 
       id: 'challenges', 
       aliases: ['challenges', 'create-challenge', 'challenge-detail'], 
-      label: '1. Problems', 
-      sublabel: 'Post issues to fix',
+      label: '1. Challenges', 
+      sublabel: 'Problem Formulation & RFPs',
       icon: <Target className="w-4 h-4" />, 
       badge: activeChallengesCount,
       badgeColor: 'bg-blue-100 text-blue-700'
@@ -38,8 +38,8 @@ export const Sidebar: React.FC = () => {
     { 
       id: 'startup-discovery', 
       aliases: ['startup-discovery', 'discovery', 'startup-profile', 'eligibility-screening', 'screening', 'expert-evaluation', 'evaluation'], 
-      label: '2. Pick Startup', 
-      sublabel: 'Find & review startups',
+      label: '2. Startup Screening', 
+      sublabel: 'DPIIT Match & Scoring',
       icon: <Search className="w-4 h-4" />, 
       badge: pendingScreeningCount ? `${pendingScreeningCount} new` : undefined,
       badgeColor: 'bg-amber-100 text-amber-800'
@@ -47,8 +47,8 @@ export const Sidebar: React.FC = () => {
     { 
       id: 'pilot-command', 
       aliases: ['pilot-command', 'contract-milestones'], 
-      label: '3. Live Test', 
-      sublabel: '50-village test run',
+      label: '3. Sandbox Pilot', 
+      sublabel: '50-Site Field Testing',
       icon: <FlaskConical className="w-4 h-4" />, 
       badge: `${activePilotsCount} Active`,
       badgeColor: 'bg-purple-100 text-purple-700'
@@ -56,19 +56,19 @@ export const Sidebar: React.FC = () => {
     { 
       id: 'baseline-outcome', 
       aliases: ['baseline-outcome', 'validation', 'evidence-room'], 
-      label: '4. See Proof', 
-      sublabel: 'Before vs After results',
+      label: '4. Empirical Evidence', 
+      sublabel: 'Lab Verification Audit',
       icon: <Scale className="w-4 h-4" />, 
-      badge: '98% Pass',
+      badge: '98.4% Pass',
       badgeColor: 'bg-emerald-100 text-emerald-800'
     },
     { 
       id: 'scale-decision', 
       aliases: ['scale-decision', 'procurement-readiness', 'procurement-pathway'], 
-      label: '5. Buy & Scale', 
-      sublabel: 'Gov approval & rollout',
+      label: '5. Scale Sanction', 
+      sublabel: 'GFR 194-A Direct Buy',
       icon: <TrendingUp className="w-4 h-4" />, 
-      badge: 'Ready',
+      badge: 'Sanctioned',
       badgeColor: 'bg-sky-100 text-sky-800'
     }
   ];
@@ -140,7 +140,7 @@ export const Sidebar: React.FC = () => {
   };
 
   return (
-    <aside aria-label="Sidebar Navigation" className="w-64 bg-white border-r border-[#E1E8F0] flex flex-col shrink-0 min-h-[calc(100vh-4rem)]">
+    <aside aria-label="Sidebar Navigation" className="hidden md:flex w-64 bg-white border-r border-[#E1E8F0] flex-col shrink-0 min-h-[calc(100vh-4rem)]">
       {/* Role workspace banner if non-government */}
       {rolePortal && (
         <div className="p-3 bg-blue-50/70 border-b border-blue-100">
@@ -152,7 +152,7 @@ export const Sidebar: React.FC = () => {
                 : 'bg-white text-[#123B63] border border-blue-200 hover:bg-blue-50'
             }`}
           >
-            <span>🎭 {rolePortal.label}</span>
+            <span className="flex items-center gap-1.5"><ShieldCheck className="w-3.5 h-3.5" /> {rolePortal.label}</span>
             <span className="text-[10px] bg-blue-600 text-white px-1.5 py-0.5 rounded">Active</span>
           </button>
         </div>
@@ -160,11 +160,11 @@ export const Sidebar: React.FC = () => {
 
       {/* Main navigation links */}
       <nav className="flex-1 px-3 py-3 space-y-4 overflow-y-auto">
-        {/* Section 1: The 5 Easy Steps */}
+        {/* Section 1: Stage-Gate Procurement Lifecycle */}
         <div>
           <div className="px-2 pb-1.5 text-[11px] font-extrabold text-blue-900 uppercase tracking-wider flex items-center gap-1.5">
             <span className="w-1.5 h-1.5 rounded-full bg-blue-600"></span>
-            5 Easy Steps
+            Procurement Lifecycle
           </div>
           <div className="space-y-1">
             {renderNavGroup(coreWorkflowSteps)}

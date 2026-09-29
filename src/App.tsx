@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { AppProvider, useApp } from './context/AppContext';
 import { Header } from './components/layout/Header';
 import { Sidebar } from './components/layout/Sidebar';
@@ -37,6 +37,7 @@ import { AdminPortalView } from './views/portals/AdminPortalView';
 
 const MainAppContent: React.FC = () => {
   const { activeTab } = useApp();
+  const [mobileNavOpen, setMobileNavOpen] = useState(false);
 
   const renderActiveView = () => {
     switch (activeTab) {
@@ -105,7 +106,7 @@ const MainAppContent: React.FC = () => {
       <DemoBanner />
 
       {/* Main Header */}
-      <Header />
+      <Header onToggleMobileNav={() => setMobileNavOpen(prev => !prev)} />
 
       {/* Guided Scenario Step-by-Step Tour */}
       <GuidedScenarioTour />
@@ -122,7 +123,7 @@ const MainAppContent: React.FC = () => {
       </div>
 
       {/* Mobile Drawer & Bottom Navigation */}
-      <MobileNav />
+      <MobileNav isOpen={mobileNavOpen} onClose={() => setMobileNavOpen(false)} />
     </div>
   );
 };

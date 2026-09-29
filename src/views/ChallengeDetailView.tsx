@@ -259,7 +259,7 @@ export const ChallengeDetailView: React.FC = () => {
 
       {/* Tab 2: Applications */}
       {activeSubTab === 'applications' && (
-        <div className="gov-card overflow-hidden">
+        <div className="gov-card overflow-x-auto">
           <table className="gov-table">
             <thead>
               <tr>

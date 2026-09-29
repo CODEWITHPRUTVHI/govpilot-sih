@@ -17,7 +17,12 @@ import {
   PlayCircle,
   RotateCcw,
   Sparkles,
-  HelpCircle
+  HelpCircle,
+  Landmark,
+  Rocket,
+  GraduationCap,
+  FlaskConical,
+  ShieldCheck
 } from 'lucide-react';
 import { Badge } from '../common/Badge';
 
@@ -46,36 +51,36 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileNav }) => {
 
   const unreadCount = notifications.filter(n => !n.read).length;
 
-  const roleOptions: { role: UserRole; title: string; subtitle: string; emoji: string }[] = [
+  const roleOptions: { role: UserRole; title: string; subtitle: string; icon: React.ReactNode }[] = [
     {
       role: 'GOVERNMENT_OFFICER',
       title: 'Government Officer',
       subtitle: 'Water Supply & Sanitation Dept',
-      emoji: '👨‍💼'
+      icon: <Briefcase className="w-4 h-4 text-blue-700" />
     },
     {
       role: 'STARTUP',
       title: 'Startup Founder',
       subtitle: 'AquaSense Technologies (DPIIT)',
-      emoji: '🚀'
+      icon: <Rocket className="w-4 h-4 text-amber-600" />
     },
     {
       role: 'EXPERT_EVALUATOR',
       title: 'Expert Judge / Evaluator',
       subtitle: 'Prof. Ananya Sharma, IIT Bombay',
-      emoji: '🎓'
+      icon: <GraduationCap className="w-4 h-4 text-purple-600" />
     },
     {
       role: 'INDEPENDENT_VALIDATOR',
       title: 'Lab Validator',
       subtitle: 'CWPRS & Quality Council of India',
-      emoji: '🔬'
+      icon: <FlaskConical className="w-4 h-4 text-emerald-600" />
     },
     {
       role: 'PROGRAM_ADMIN',
       title: 'State Admin Director',
       subtitle: 'Maharashtra State Innovation Society',
-      emoji: '👑'
+      icon: <ShieldCheck className="w-4 h-4 text-sky-700" />
     }
   ];
 
@@ -123,8 +128,8 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileNav }) => {
             onClick={() => setActiveTab('dashboard')} 
             className="flex items-center gap-2.5 cursor-pointer select-none group"
           >
-            <div className="w-10 h-10 bg-gradient-to-br from-[#123B63] to-[#1E568A] text-white rounded-xl flex items-center justify-center font-extrabold text-lg tracking-tight shadow-xs group-hover:scale-105 transition-transform">
-              🏛️
+            <div className="w-10 h-10 bg-gradient-to-br from-[#123B63] to-[#1E568A] text-white rounded-xl flex items-center justify-center shadow-xs group-hover:scale-105 transition-transform">
+              <Landmark className="w-5 h-5 text-white" />
             </div>
             <div>
               <div className="flex items-center gap-2">
@@ -134,7 +139,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileNav }) => {
                 </span>
               </div>
               <p className="text-[11px] text-gray-500 font-medium hidden sm:block">
-                Problem ➔ Pilot ➔ Scale
+                Problem &middot; Pilot &middot; Scale
               </p>
             </div>
           </div>
@@ -258,7 +263,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileNav }) => {
               onClick={() => setRoleDropdownOpen(!roleDropdownOpen)}
               className="flex items-center gap-2 px-3 py-1.5 bg-blue-50 hover:bg-blue-100/80 border border-blue-200 rounded-xl text-xs font-bold text-[#123B63] transition-all"
             >
-              <span className="text-base">{currentRoleInfo.emoji}</span>
+              <span className="p-1 rounded-md bg-white border border-blue-200/60 shadow-xs shrink-0">{currentRoleInfo.icon}</span>
               <div className="text-left hidden md:block">
                 <div className="text-xs leading-none font-bold">{currentRoleInfo.title}</div>
                 <div className="text-[10px] text-blue-700/70 font-normal leading-tight mt-0.5">Switch Persona</div>
@@ -282,7 +287,7 @@ export const Header: React.FC<HeaderProps> = ({ onToggleMobileNav }) => {
                           : 'hover:bg-gray-100 text-gray-800'
                       }`}
                     >
-                      <span className="text-lg shrink-0">{opt.emoji}</span>
+                      <span className={`p-1.5 rounded-md shrink-0 ${currentRole === opt.role ? 'bg-white/20 text-white' : 'bg-gray-100 text-gray-700'}`}>{opt.icon}</span>
                       <div className="min-w-0 flex-1">
                         <div className="font-bold truncate">{opt.title}</div>
                         <div className={`text-[10.5px] truncate ${currentRole === opt.role ? 'text-blue-200' : 'text-gray-500'}`}>

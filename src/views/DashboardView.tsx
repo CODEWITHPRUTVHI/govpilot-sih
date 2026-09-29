@@ -15,7 +15,13 @@ import {
   Zap, 
   PlayCircle,
   Users,
-  AlertTriangle
+  AlertTriangle,
+  Building2,
+  Landmark,
+  Rocket,
+  FileCheck,
+  CreditCard,
+  MapPin
 } from 'lucide-react';
 import { WorkflowStepper } from '../components/common/WorkflowStepper';
 import { Badge } from '../components/common/Badge';
@@ -70,7 +76,7 @@ export const DashboardView: React.FC = () => {
       tag: 'Verified Results',
       title: '4x Faster & 98% Accurate',
       desc: 'IIT Bombay & CWPRS certified water detection results.',
-      status: 'Lab Certified ✅',
+      status: 'ISO 17025 Certified',
       statusColor: 'bg-emerald-100 text-emerald-800',
       actionTab: 'baseline-outcome',
       btnText: 'Inspect Proof',
@@ -81,10 +87,10 @@ export const DashboardView: React.FC = () => {
       tag: 'Statewide Scale',
       title: 'Rollout to 12 Districts',
       desc: 'Save ₹1.54 Crore/year for Maharashtra water supply.',
-      status: 'Ready to Buy',
+      status: 'Sanctioned',
       statusColor: 'bg-sky-100 text-sky-800',
       actionTab: 'scale-decision',
-      btnText: 'Approve Scale',
+      btnText: 'Review Sanction',
       icon: <TrendingUp className="w-5 h-5 text-sky-600" />
     }
   ];
@@ -100,16 +106,16 @@ export const DashboardView: React.FC = () => {
           <div>
             <div className="inline-flex items-center gap-2 bg-white/10 backdrop-blur px-3 py-1.5 rounded-full text-xs font-bold mb-3 border border-white/15">
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse"></span>
-              <span>🏛️ Maharashtra State Innovation Society</span>
+              <span className="flex items-center gap-1.5"><Landmark className="w-3.5 h-3.5" /> Maharashtra State Innovation Society</span>
               <span className="text-white/40">•</span>
               <span className="text-emerald-300 font-extrabold">SIH 2026</span>
             </div>
             <h1 className="text-2xl sm:text-3xl font-black tracking-tight leading-tight">
-              Test Startups in Real Life
-              <span className="block text-blue-300">Before Buying Their Solution</span>
+              Evidence-Based Public Procurement
+              <span className="block text-blue-300">From Startup Pilot to Statewide Scale</span>
             </h1>
             <p className="text-blue-200/80 text-sm mt-2 max-w-2xl leading-relaxed">
-              Post challenges → Pilot startups in real villages for 90 days → Verify proof independently → Scale with full confidence.
+              Formulate challenges &rarr; Controlled 90-day sandbox pilot &rarr; Third-party NABL empirical verification &rarr; Direct GeM scale procurement under GFR Rule 194.
             </p>
           </div>
 
@@ -119,26 +125,26 @@ export const DashboardView: React.FC = () => {
               className="bg-emerald-500 hover:bg-emerald-400 text-white px-5 py-3 rounded-xl font-bold text-xs flex items-center gap-2 shadow-lg shadow-emerald-900/30 transition-all hover:scale-105 active:scale-100"
             >
               <PlayCircle className="w-4 h-4" />
-              ▶ Play 2-Min Demo
+              Scenario Walkthrough
             </button>
             <button
               onClick={() => setActiveTab('scale-simulator')}
               className="glass text-white px-5 py-3 rounded-xl font-bold text-xs flex items-center gap-2 hover:bg-white/20 transition-all"
             >
               <IndianRupee className="w-4 h-4 text-amber-300" />
-              Savings Calculator
+              Exchequer Savings Model
             </button>
           </div>
         </div>
       </div>
 
       {/* 4 Big Visual Metric Tiles */}
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-4">
+      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4">
         {/* Metric 1 */}
         <div className="metric-card blue animate-fade-in-up delay-100">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center font-bold text-xl shrink-0 shadow-sm">
-              ⚡
+            <div className="w-12 h-12 rounded-xl bg-blue-50 text-blue-600 flex items-center justify-center shrink-0 shadow-sm">
+              <Zap className="w-6 h-6 text-blue-600" />
             </div>
             <div>
               <div className="text-[11px] font-bold uppercase text-gray-500 tracking-wider">Detection Speed</div>
@@ -153,8 +159,8 @@ export const DashboardView: React.FC = () => {
         {/* Metric 2 */}
         <div className="metric-card green animate-fade-in-up delay-200">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center font-bold text-xl shrink-0 shadow-sm">
-              💰
+            <div className="w-12 h-12 rounded-xl bg-emerald-50 text-emerald-600 flex items-center justify-center shrink-0 shadow-sm">
+              <IndianRupee className="w-6 h-6 text-emerald-600" />
             </div>
             <div>
               <div className="text-[11px] font-bold uppercase text-gray-500 tracking-wider">Testing Cost</div>
@@ -169,8 +175,8 @@ export const DashboardView: React.FC = () => {
         {/* Metric 3 */}
         <div className="metric-card amber animate-fade-in-up delay-300">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center font-bold text-xl shrink-0 shadow-sm">
-              🎯
+            <div className="w-12 h-12 rounded-xl bg-purple-50 text-purple-600 flex items-center justify-center shrink-0 shadow-sm">
+              <ShieldCheck className="w-6 h-6 text-purple-600" />
             </div>
             <div>
               <div className="text-[11px] font-bold uppercase text-gray-500 tracking-wider">Lab Accuracy</div>
@@ -185,11 +191,11 @@ export const DashboardView: React.FC = () => {
         {/* Metric 4 */}
         <div className="metric-card sky animate-fade-in-up delay-400">
           <div className="flex items-center gap-3.5">
-            <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center font-bold text-xl shrink-0 shadow-sm">
-              🏘️
+            <div className="w-12 h-12 rounded-xl bg-sky-50 text-sky-600 flex items-center justify-center shrink-0 shadow-sm">
+              <Building2 className="w-6 h-6 text-sky-600" />
             </div>
             <div>
-              <div className="text-[11px] font-bold uppercase text-gray-500 tracking-wider">People Protected</div>
+              <div className="text-[11px] font-bold uppercase text-gray-500 tracking-wider">Citizens Protected</div>
               <div className="text-2xl font-black text-gray-900 leading-tight">48,000+</div>
               <div className="text-[11px] font-semibold text-sky-700 mt-0.5 flex items-center gap-1">
                 <CheckCircle2 className="w-3 h-3" /> 50 Tanks · Solapur
@@ -201,11 +207,13 @@ export const DashboardView: React.FC = () => {
 
       {/* Visual Storyboard: 5 Steps at a Glance */}
       <div className="gov-card p-5">
-        <div className="flex items-center justify-between mb-5">
+        <div className="flex flex-col sm:flex-row sm:items-center justify-between mb-5 gap-3">
           <div>
             <h2 className="text-base font-extrabold text-gray-900 flex items-center gap-2">
-              <span className="w-8 h-8 rounded-lg bg-purple-100 flex items-center justify-center text-sm">🚀</span>
-              <span>Primary Pilot: Rural Drinking Water</span>
+              <span className="w-8 h-8 rounded-lg bg-blue-100 flex items-center justify-center text-sm text-blue-700 font-bold">
+                <Rocket className="w-4 h-4 text-blue-700" />
+              </span>
+              <span>Primary Sandbox Pilot: Rural Drinking Water Telemetry</span>
             </h2>
             <p className="text-xs text-gray-500 mt-0.5 ml-10">
               Challenge CH-MH-2026-014 · From problem definition to statewide scaling
@@ -267,7 +275,9 @@ export const DashboardView: React.FC = () => {
             {/* Item 1 */}
             <div className="p-3 rounded-xl border border-emerald-200 bg-emerald-50/50 flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="text-2xl">📋</div>
+                <div className="w-10 h-10 rounded-xl bg-emerald-100 flex items-center justify-center shrink-0">
+                  <FileCheck className="w-5 h-5 text-emerald-700" />
+                </div>
                 <div>
                   <div className="text-xs font-bold text-gray-900">Lab Validation Report Ready</div>
                   <div className="text-[11px] text-emerald-800 font-medium">CWPRS Pune signed 98.4% lab passing score.</div>
@@ -287,7 +297,9 @@ export const DashboardView: React.FC = () => {
             {/* Item 2 */}
             <div className="p-3 rounded-xl border border-blue-200 bg-blue-50/50 flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="text-2xl">🏛️</div>
+                <div className="w-10 h-10 rounded-xl bg-blue-100 flex items-center justify-center shrink-0">
+                  <Landmark className="w-5 h-5 text-blue-700" />
+                </div>
                 <div>
                   <div className="text-xs font-bold text-gray-900">Scale to 12 Districts</div>
                   <div className="text-[11px] text-blue-800 font-medium">Approval ready for Joint Secretary sign-off.</div>
@@ -307,7 +319,9 @@ export const DashboardView: React.FC = () => {
             {/* Item 3 */}
             <div className="p-3 rounded-xl border border-purple-200 bg-purple-50/50 flex items-center justify-between gap-3">
               <div className="flex items-center gap-3">
-                <div className="text-2xl">💸</div>
+                <div className="w-10 h-10 rounded-xl bg-purple-100 flex items-center justify-center shrink-0">
+                  <CreditCard className="w-5 h-5 text-purple-700" />
+                </div>
                 <div>
                   <div className="text-xs font-bold text-gray-900">Milestone 4 Payment Release</div>
                   <div className="text-[11px] text-purple-800 font-medium">₹2.84 Lakh tranche ready for release upon review.</div>
@@ -330,8 +344,9 @@ export const DashboardView: React.FC = () => {
         <div className="bg-white p-5 rounded-2xl border border-gray-200 shadow-xs flex flex-col justify-between">
           <div>
             <div className="flex items-center justify-between mb-3">
-              <h3 className="text-sm font-extrabold text-gray-900 flex items-center gap-2">
-                <span>📍 Live Village Tanks Status (Solapur District)</span>
+              <h3 className="text-sm font-extrabold text-gray-900 flex items-center gap-1.5">
+                <MapPin className="w-4 h-4 text-blue-600" />
+                <span>Live Village Tanks Status (Solapur District)</span>
               </h3>
               <button
                 onClick={() => setActiveTab('pilot-command')}
@@ -346,15 +361,24 @@ export const DashboardView: React.FC = () => {
             <div className="grid grid-cols-3 gap-2 mb-4">
               <div className="bg-emerald-50 p-2.5 rounded-xl border border-emerald-200 text-center">
                 <div className="text-xl font-black text-emerald-700">46</div>
-                <div className="text-[10px] font-bold text-emerald-800 uppercase">🟢 Clean Water</div>
+                <div className="text-[10px] font-bold text-emerald-800 uppercase flex items-center justify-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+                  Clean Water
+                </div>
               </div>
               <div className="bg-amber-50 p-2.5 rounded-xl border border-amber-200 text-center">
                 <div className="text-xl font-black text-amber-700">3</div>
-                <div className="text-[10px] font-bold text-amber-800 uppercase">🟡 Caution (pH Alert)</div>
+                <div className="text-[10px] font-bold text-amber-800 uppercase flex items-center justify-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+                  Caution (pH)
+                </div>
               </div>
               <div className="bg-rose-50 p-2.5 rounded-xl border border-rose-200 text-center">
                 <div className="text-xl font-black text-rose-700">1</div>
-                <div className="text-[10px] font-bold text-rose-800 uppercase">🔴 Auto-Purge Done</div>
+                <div className="text-[10px] font-bold text-rose-800 uppercase flex items-center justify-center gap-1">
+                  <span className="w-1.5 h-1.5 rounded-full bg-rose-600 animate-pulse"></span>
+                  Purge Active
+                </div>
               </div>
             </div>
 

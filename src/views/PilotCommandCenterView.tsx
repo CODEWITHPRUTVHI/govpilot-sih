@@ -40,15 +40,16 @@ export const PilotCommandCenterView: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 bg-purple-50 text-purple-900 text-xs font-bold px-2.5 py-1 rounded-full mb-1">
-              <span>🧪 Step 3 of 5</span>
+              <FlaskConical className="w-3.5 h-3.5" />
+              <span>Stage 3 of 5</span>
               <span>•</span>
-              <span>Live Village Testing</span>
+              <span>Controlled Sandbox Pilot Telemetry</span>
             </div>
             <h1 className="text-xl sm:text-2xl font-black text-gray-900">
-              Live Test: AquaSense Sensors in 50 Village Tanks
+              Live Field Sandbox: AquaSense IoT Sensors (50 Village Tanks)
             </h1>
             <p className="text-xs text-gray-500 mt-0.5">
-              Testing smart water sensors in Solapur district villages for 90 days.
+              Statutory 90-day pre-procurement sandbox testing in Solapur district reservoirs under rural field conditions.
             </p>
           </div>
 
@@ -127,17 +128,28 @@ export const PilotCommandCenterView: React.FC = () => {
             </p>
           </div>
 
-          <div className="flex items-center gap-2 text-xs font-bold">
-            <span className="bg-emerald-100 text-emerald-800 px-2 py-0.5 rounded-full">46 Normal 🟢</span>
-            <span className="bg-amber-100 text-amber-800 px-2 py-0.5 rounded-full">3 Warning 🟡</span>
-            <span className="bg-rose-100 text-rose-800 px-2 py-0.5 rounded-full">1 Auto-Alert 🔴</span>
+          <div className="flex items-center gap-2 text-xs font-bold flex-wrap">
+            <span className="bg-emerald-100 text-emerald-800 px-2.5 py-1 rounded-full flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-600"></span>
+              46 Normal
+            </span>
+            <span className="bg-amber-100 text-amber-800 px-2.5 py-1 rounded-full flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-amber-600"></span>
+              3 Advisory
+            </span>
+            <span className="bg-rose-100 text-rose-800 px-2.5 py-1 rounded-full flex items-center gap-1.5">
+              <span className="w-1.5 h-1.5 rounded-full bg-rose-600 animate-pulse"></span>
+              1 Auto-Alert
+            </span>
           </div>
         </div>
 
         {/* Highlighted Alert Box */}
         <div className="p-4 bg-rose-50 border border-rose-200 rounded-xl mb-4 flex flex-col sm:flex-row items-start sm:items-center justify-between gap-3">
           <div className="flex items-center gap-3">
-            <div className="text-2xl">🚨</div>
+            <div className="w-10 h-10 rounded-xl bg-rose-100 flex items-center justify-center shrink-0">
+              <AlertTriangle className="w-5 h-5 text-rose-600" />
+            </div>
             <div>
               <div className="text-xs font-black text-rose-900">
                 Automatic Contamination Alert Triggered: Village Borgaon Tank #4
@@ -154,7 +166,7 @@ export const PilotCommandCenterView: React.FC = () => {
 
         {/* Milestone Payment Tranches */}
         <div className="mt-4 pt-4 border-t border-gray-100">
-          <div className="text-xs font-black text-gray-900 uppercase tracking-wide mb-3 flex items-center justify-between">
+          <div className="text-xs font-black text-gray-900 uppercase tracking-wide mb-3 flex flex-col sm:flex-row sm:items-center justify-between gap-1">
             <span>4 Pilot Payment Stages (Pay Only When Milestones Pass)</span>
             <span className="text-emerald-700 font-bold">Total Budget: ₹14.2 Lakhs</span>
           </div>
@@ -163,7 +175,9 @@ export const PilotCommandCenterView: React.FC = () => {
             <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase text-emerald-800">Stage 1 (Day 15)</span>
-                <span className="text-xs font-bold text-emerald-700">✅ Paid ₹4.2L</span>
+                <span className="text-xs font-bold text-emerald-700 flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Paid ₹4.2L
+                </span>
               </div>
               <div className="text-xs font-extrabold text-gray-900 mt-1">50 Sensors Installed</div>
             </div>
@@ -171,7 +185,9 @@ export const PilotCommandCenterView: React.FC = () => {
             <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase text-emerald-800">Stage 2 (Day 30)</span>
-                <span className="text-xs font-bold text-emerald-700">✅ Paid ₹3.5L</span>
+                <span className="text-xs font-bold text-emerald-700 flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Paid ₹3.5L
+                </span>
               </div>
               <div className="text-xs font-extrabold text-gray-900 mt-1">Cloud Mesh Connected</div>
             </div>
@@ -179,7 +195,9 @@ export const PilotCommandCenterView: React.FC = () => {
             <div className="p-3 bg-emerald-50 border border-emerald-200 rounded-xl">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase text-emerald-800">Stage 3 (Day 60)</span>
-                <span className="text-xs font-bold text-emerald-700">✅ Paid ₹3.5L</span>
+                <span className="text-xs font-bold text-emerald-700 flex items-center gap-1">
+                  <CheckCircle2 className="w-3.5 h-3.5" /> Paid ₹3.5L
+                </span>
               </div>
               <div className="text-xs font-extrabold text-gray-900 mt-1">NABL Lab Correlation</div>
             </div>
@@ -187,7 +205,9 @@ export const PilotCommandCenterView: React.FC = () => {
             <div className="p-3 bg-blue-50 border border-blue-200 rounded-xl">
               <div className="flex items-center justify-between">
                 <span className="text-[10px] font-bold uppercase text-blue-800">Stage 4 (Day 90)</span>
-                <span className="text-xs font-bold text-blue-700">⏳ ₹3.0L Final</span>
+                <span className="text-xs font-bold text-blue-700 flex items-center gap-1">
+                  <Clock className="w-3.5 h-3.5" /> Final ₹3.0L
+                </span>
               </div>
               <div className="text-xs font-extrabold text-gray-900 mt-1">Final Statewide Report</div>
             </div>

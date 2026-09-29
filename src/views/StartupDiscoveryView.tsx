@@ -10,10 +10,12 @@ import {
   CheckCircle2, 
   Check, 
   X, 
-  SlidersHorizontal,
-  Award,
-  FlaskConical,
-  Scale
+  SlidersHorizontal, 
+  Award, 
+  FlaskConical, 
+  Scale,
+  Droplets,
+  Cpu
 } from 'lucide-react';
 import { WorkflowStepper } from '../components/common/WorkflowStepper';
 import { Badge } from '../components/common/Badge';
@@ -43,20 +45,21 @@ export const StartupDiscoveryView: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-3">
           <div>
             <div className="inline-flex items-center gap-1.5 bg-amber-50 text-amber-900 text-xs font-bold px-2.5 py-1 rounded-full mb-1">
-              <span>🚀 Step 2 of 5</span>
+              <Search className="w-3.5 h-3.5" />
+              <span>Stage 2 of 5</span>
               <span>•</span>
-              <span>Find & Pick Startups</span>
+              <span>DPIIT Startup Discovery & Screening</span>
             </div>
             <h1 className="text-xl sm:text-2xl font-black text-gray-900">
-              Matched Startups for Water Contamination Challenge
+              Evaluated Startups for Rural Water Contamination Challenge
             </h1>
             <p className="text-xs text-gray-500 mt-0.5">
-              Verified DPIIT startups with ready technologies to test in villages.
+              Verified DPIIT-recognized startups with field-deployable solutions screened under state procurement guidelines.
             </p>
           </div>
 
           {/* Sub Navigation */}
-          <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl shrink-0">
+          <div className="flex items-center gap-1 bg-gray-100 p-1 rounded-xl shrink-0 flex-wrap">
             <button
               onClick={() => setSelectedSubTab('match')}
               className={`px-3 py-1.5 rounded-lg text-xs font-bold transition-all ${
@@ -65,19 +68,21 @@ export const StartupDiscoveryView: React.FC = () => {
                   : 'text-gray-600 hover:text-gray-900'
               }`}
             >
-              1. Matched Startups ({startups.length})
+              1. Matched ({startups.length})
             </button>
             <button
               onClick={() => setActiveTab('eligibility-screening')}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all hover:bg-white/50"
+              className="px-3 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all hover:bg-white/50 flex items-center gap-1"
             >
-              2. Eligibility Check ➔
+              <span>2. Eligibility Screening</span>
+              <ArrowRight className="w-3 h-3" />
             </button>
             <button
               onClick={() => setActiveTab('expert-evaluation')}
-              className="px-3 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all hover:bg-white/50"
+              className="px-3 py-1.5 rounded-lg text-xs font-bold text-gray-600 hover:text-gray-900 transition-all hover:bg-white/50 flex items-center gap-1"
             >
-              3. Judge Scores ➔
+              <span>3. Evaluator Scoring</span>
+              <ArrowRight className="w-3 h-3" />
             </button>
           </div>
         </div>
@@ -111,7 +116,9 @@ export const StartupDiscoveryView: React.FC = () => {
               <div>
                 {/* Top Pill: Match Score */}
                 <div className="flex items-center justify-between gap-2 mb-3">
-                  <span className="text-2xl">{isAquaSense ? '💧' : '🤖'}</span>
+                  <div className="w-10 h-10 rounded-xl bg-blue-50 text-blue-700 flex items-center justify-center shrink-0">
+                    {isAquaSense ? <Droplets className="w-5 h-5 text-blue-600" /> : <Cpu className="w-5 h-5 text-gray-600" />}
+                  </div>
                   {isAquaSense ? (
                     <span className="bg-emerald-100 text-emerald-800 font-black text-xs px-2.5 py-1 rounded-full flex items-center gap-1">
                       <Sparkles className="w-3.5 h-3.5" />

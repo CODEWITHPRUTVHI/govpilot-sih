@@ -7,8 +7,9 @@ import {
   TrendingUp, 
   RotateCcw, 
   Sparkles, 
-  ArrowRight,
-  ShieldCheck
+  ArrowRight, 
+  ShieldCheck,
+  Sliders
 } from 'lucide-react';
 import { WorkflowStepper } from '../components/common/WorkflowStepper';
 import { Badge } from '../components/common/Badge';
@@ -44,15 +45,16 @@ export const ScaleSimulatorView: React.FC = () => {
         <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-4">
           <div>
             <div className="inline-flex items-center gap-1.5 bg-emerald-50 text-emerald-900 text-xs font-bold px-2.5 py-1 rounded-full mb-1">
-              <span>💰 Money Saver Calculator</span>
+              <Sliders className="w-3.5 h-3.5" />
+              <span>Public Exchequer Scale Simulator</span>
               <span>•</span>
-              <span>Interactive Simulator</span>
+              <span>Financial Impact Model</span>
             </div>
             <h1 className="text-xl sm:text-2xl font-black text-gray-900">
-              How Much Money Will Maharashtra Save?
+              Statewide Scale & Fiscal Savings Projections
             </h1>
             <p className="text-xs text-gray-500 mt-0.5">
-              Move the sliders below to see cost savings and citizen protection in real-time.
+              Simulate recurring expenditure savings and beneficiary coverage across Maharashtra's 36 districts.
             </p>
           </div>
 
@@ -120,7 +122,8 @@ export const ScaleSimulatorView: React.FC = () => {
       {/* Sliders Card */}
       <div className="bg-white p-6 rounded-2xl border border-gray-200 shadow-xs">
         <h2 className="text-base font-black text-gray-900 mb-6 flex items-center gap-2">
-          <span>🎛️ Adjust Scale Parameters</span>
+          <Sliders className="w-4 h-4 text-blue-600" />
+          <span>Adjust District Deployment Parameters</span>
         </h2>
 
         <div className="space-y-6 max-w-3xl">

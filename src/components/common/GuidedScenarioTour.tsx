@@ -12,7 +12,10 @@ import {
   Search,
   FlaskConical,
   Scale,
-  TrendingUp
+  TrendingUp,
+  Landmark,
+  Rocket,
+  FileCheck
 } from 'lucide-react';
 
 export const GuidedScenarioTour: React.FC = () => {
@@ -33,14 +36,14 @@ export const GuidedScenarioTour: React.FC = () => {
 
   const tourSteps = [
     {
-      title: 'Step 1: The Problem (Dirty Water Warning)',
-      stage: 'Problem',
+      title: 'Stage 1: Problem Challenge (Rural Water Quality)',
+      stage: 'Problem Formulation',
       role: 'GOVERNMENT_OFFICER' as const,
       tab: 'challenges',
       challengeId: 'CH-001',
-      emoji: '🎯',
-      summary: 'Rural drinking water takes 72 hours to test by hand. The government posts a challenge: "We need an automatic sensor that detects contamination in under 24 hours for under ₹300 per test!"',
-      actionText: 'See The Problem ➔',
+      icon: <Target className="w-5 h-5 text-white" />,
+      summary: 'Rural drinking water historically required 72 hours for manual testing. The state department formulated an objective challenge: automated telemetry detecting contamination within 24 hours under ₹300 per test.',
+      actionText: 'View Challenge Specification',
       onApply: () => {
         setRole('GOVERNMENT_OFFICER');
         setSelectedChallengeId('CH-001');
@@ -48,14 +51,14 @@ export const GuidedScenarioTour: React.FC = () => {
       }
     },
     {
-      title: 'Step 2: Pick the Best Startup',
-      stage: 'Startup Match',
+      title: 'Stage 2: DPIIT Startup Screening & Matching',
+      stage: 'Startup Evaluation',
       role: 'GOVERNMENT_OFFICER' as const,
       tab: 'startup-discovery',
       challengeId: 'CH-001',
-      emoji: '🚀',
-      summary: 'The system scans verified Indian startups. AquaSense Technologies gets a 94% match score with their solar smart water sensor. The judges approve them for a live test.',
-      actionText: 'View Matched Startup ➔',
+      icon: <Rocket className="w-5 h-5 text-white" />,
+      summary: 'Automated screening of DPIIT-recognized startups evaluated AquaSense Technologies with a 94% capability match score. Evaluators cleared the startup for a field sandbox pilot.',
+      actionText: 'View Evaluated Startup',
       onApply: () => {
         setRole('GOVERNMENT_OFFICER');
         setSelectedStartupId('ST-001');
@@ -63,14 +66,14 @@ export const GuidedScenarioTour: React.FC = () => {
       }
     },
     {
-      title: 'Step 3: Live 90-Day Village Test',
-      stage: 'Live Village Test',
+      title: 'Stage 3: 50-Village Controlled Sandbox Pilot',
+      stage: 'Field Telemetry',
       role: 'GOVERNMENT_OFFICER' as const,
       tab: 'pilot-command',
       pilotId: 'PLT-001',
-      emoji: '🧪',
-      summary: 'We install smart sensors in 50 village drinking water tanks in Solapur. Live telemetry shows contamination warnings trigger in 28 minutes instead of 3 days!',
-      actionText: 'Open Live Village Map & Sensors ➔',
+      icon: <FlaskConical className="w-5 h-5 text-white" />,
+      summary: 'IoT spectrophotometric sensors deployed across 50 elevated storage reservoirs in Solapur. Live telemetry automated contamination alert dissemination in 28 seconds.',
+      actionText: 'Inspect Live Telemetry Grid',
       onApply: () => {
         setRole('GOVERNMENT_OFFICER');
         setSelectedPilotId('PLT-001');
@@ -78,14 +81,14 @@ export const GuidedScenarioTour: React.FC = () => {
       }
     },
     {
-      title: 'Step 4: Check Proof & Results',
-      stage: 'Before vs After Proof',
+      title: 'Stage 4: Empirical Outcome Verification & Lab Audit',
+      stage: 'Evidence Verification',
       role: 'INDEPENDENT_VALIDATOR' as const,
       tab: 'baseline-outcome',
       pilotId: 'PLT-001',
-      emoji: '📊',
-      summary: 'Before vs After comparison: 4x faster (18h vs 72h) and 40% cheaper (₹270 vs ₹450). Independent lab validator (IIT Bombay & CWPRS) signs the official 98.4% passing certificate!',
-      actionText: 'See Before vs After Proof ➔',
+      icon: <Scale className="w-5 h-5 text-white" />,
+      summary: 'Comparative analysis demonstrated 4x faster detection (18h vs 72h) and 40% cost reduction (₹270 vs ₹450). Third-party validators CWPRS and IIT Bombay issued 98.4% passing certification.',
+      actionText: 'Inspect Lab Verification Audit',
       onApply: () => {
         setRole('INDEPENDENT_VALIDATOR');
         setSelectedPilotId('PLT-001');
@@ -93,14 +96,14 @@ export const GuidedScenarioTour: React.FC = () => {
       }
     },
     {
-      title: 'Step 5: Buy & Scale Across Maharashtra',
-      stage: 'Scale & Buy',
+      title: 'Stage 5: Statutory Scale Sanction (GFR 194-A)',
+      stage: 'Scale Procurement',
       role: 'GOVERNMENT_OFFICER' as const,
       tab: 'scale-decision',
       pilotId: 'PLT-001',
-      emoji: '🏛️',
-      summary: 'With proven lab results, the Joint Secretary authorizes statewide rollout for 12 districts (2,400 villages), saving Maharashtra ₹1.54 Crore every year!',
-      actionText: 'Approve & Scale Rollout ➔',
+      icon: <Landmark className="w-5 h-5 text-white" />,
+      summary: 'With NABL lab audit verification on record, the Competent Authority sanctioned statewide rollout across 12 priority districts (2,400 village tanks) generating ₹1.54 Cr recurring annual savings.',
+      actionText: 'Review Scale Sanction Order',
       onApply: () => {
         setRole('GOVERNMENT_OFFICER');
         setSelectedPilotId('PLT-001');
@@ -122,8 +125,8 @@ export const GuidedScenarioTour: React.FC = () => {
       <div className="max-w-7xl mx-auto flex flex-col md:flex-row items-start md:items-center justify-between gap-3">
         {/* Step Badge & Info */}
         <div className="flex items-center gap-3">
-          <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center text-xl shrink-0 border border-white/20">
-            {currentStepData.emoji}
+          <div className="w-10 h-10 bg-white/10 rounded-xl flex items-center justify-center shrink-0 border border-white/20">
+            {currentStepData.icon}
           </div>
           <div>
             <div className="flex items-center gap-2">

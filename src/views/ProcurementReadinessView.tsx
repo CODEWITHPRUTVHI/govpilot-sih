@@ -160,7 +160,7 @@ export const ProcurementReadinessView: React.FC = () => {
       </div>
 
       {/* 10 Dimension Table */}
-      <div className="gov-card overflow-hidden">
+      <div className="gov-card overflow-x-auto">
         <table className="gov-table">
           <thead>
             <tr>
