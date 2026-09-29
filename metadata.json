@@ -1,0 +1,6 @@
+{
+  "name": "GovPilot - Innovation-to-Scale Platform",
+  "description": "Startup-friendly public procurement operating system for the Government of Maharashtra enabling structured innovation challenges, controlled pilots, evidence validation, and accountable scale decisions.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
